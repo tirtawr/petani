@@ -12,12 +12,15 @@ exports.setName = function (req, res) {
   myFirebaseRef.set({
     currentName:req.body.name
   });
-  res.json({status:"success", data:{name:req.body.name}})
+  res.json({status:"success", data:{name:req.body.name}});
 }
 
 exports.getName = function (req, res) {
+  var isSent = false;
   myFirebaseRef.child("currentName").on("value", function(snapshot) {
-    console.log(snapshot.val());
-    res.json({status:"success", data:{name:snapshot.val()}})
+    if(!isSent){
+      isSent = true;
+      res.json({status:"success", data:{name:snapshot.val()}});
+    }
   });
 }

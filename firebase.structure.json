@@ -1,0 +1,63 @@
+{
+  "app_name":"Petani",
+  "sellers": [
+    {
+      "id":"0",
+      "email":"user0@user.com",
+      "password":"password0",
+      "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
+      "is_active":1
+    },
+    {
+      "id":"1",
+      "email":"user1@user.com",
+      "password":"password1",
+      "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
+      "is_active":1
+    }
+  ],
+  "buyyers": [
+    {
+      "id":"0",
+      "email":"user0@user.com",
+      "password":"password0",
+      "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
+      "is_active":1
+    },
+    {
+      "id":"1",
+      "email":"user1@user.com",
+      "password":"password1",
+      "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
+      "is_active":1
+    }
+  ],
+  "offers":[
+    {
+      "id":0,
+      "offerer_email":"user0@user.com",
+      "weight":400,
+      "image_url":[
+        "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
+        "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg"
+      ],
+      "description":"Sayur tomat segar",
+      "is_valid":0
+    },
+    {
+      "id":1,
+      "offerer_email":"user1@user.com",
+      "weight":30,
+      "image_url":[
+        "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
+        "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg"
+      ],
+      "description":"Cabe merah segar",
+      "is_valid":1
+    }
+  ],
+  "transactions":[
+    
+  ]
+
+}
