@@ -85,9 +85,10 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  console.log('Welcome to <INSERT_APP_NAME_HERE>!');
+  console.log('Welcome to Petani!');
+  console.log('Running on ', bind);
 
-  var welcomeMessage = '<WELCOME_MESSAGE>';
+  var welcomeMessage = '';
   console.log(welcomeMessage);
 
 }

@@ -25,8 +25,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 
 
-var routesV1 = require('./routes/routes.v1');
-app.use('/v1', routesV1);
+
+var apiRoutes = require('./routes/routes.api');
+app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
