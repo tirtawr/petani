@@ -1,5 +1,5 @@
 {
   "appName":"EcommerceUntukPetani",
   "baseUrl":"/",
-  "firebaseUrl":""
+  "firebaseUrl":"https://brilliant-inferno-9906.firebaseio.com"
 }

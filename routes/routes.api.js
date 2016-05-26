@@ -6,7 +6,31 @@ router.get('/hello', apiController.hello);
 
 router.post('/name', apiController.setName);
 
-router.get('/name', apiController.getName)
+router.get('/name', apiController.getName);
+
+router.post('/buyer', apiController.setBuyer);
+
+router.get('/buyer', apiController.getBuyer);
+
+router.get('/buyer/:id', apiController.getBuyerById);
+
+router.put('/buyer/:id', apiController.editBuyerById);
+
+router.post('/seller', apiController.setSeller);
+
+router.get('/seller', apiController.getSeller);
+
+router.get('/seller/:id', apiController.getSeller);
+
+router.put('/seller/:id', apiController.editSellerById);
+
+router.post('/offer', apiController.setOffer);
+
+router.get('/offer', apiController.getOffer);
+
+router.get('/offer/:id', apiController.getOffer);
+
+router.put('/offer/:id', apiController.editOfferById);
 
 
 router.get('/', function(req, res) {

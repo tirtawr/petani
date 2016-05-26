@@ -2,30 +2,30 @@
   "app_name":"Petani",
   "sellers": [
     {
-      "id":"0",
+      "username":"seller0",
       "email":"user0@user.com",
       "password":"password0",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
       "is_active":1
     },
     {
-      "id":"1",
+      "username":"seller1",
       "email":"user1@user.com",
       "password":"password1",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
       "is_active":1
     }
   ],
-  "buyyers": [
+  "buyers": [
     {
-      "id":"0",
+      "username":"buyer0",
       "email":"user0@user.com",
       "password":"password0",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
       "is_active":1
     },
     {
-      "id":"1",
+      "username":"buyer1",
       "email":"user1@user.com",
       "password":"password1",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
@@ -57,7 +57,15 @@
     }
   ],
   "transactions":[
-    
+
   ]
 
 }
+
+Login (buyer/seller)
+Make Offer (seller)
+  -price
+  -amount (kg)
+  -photo
+  -category
+Buy
