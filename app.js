@@ -24,6 +24,7 @@ if (app.get('env') === "development") {
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
+app.use(express.static('public'));
 
 
 var apiRoutes = require('./routes/routes.api');
