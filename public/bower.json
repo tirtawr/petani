@@ -1,0 +1,21 @@
+{
+  "name": "FjbHasilTani",
+  "homepage": "https://github.com/tirtawr/petani",
+  "authors": [
+    "Tirta Wening Rachman <tirta.rachman@veritrans.co.id>"
+  ],
+  "description": "",
+  "main": "app.js",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
