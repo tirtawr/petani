@@ -127,12 +127,16 @@ exports.getSellerById = function (req, res) {
 }
 
 exports.setOffer = function (req, res) {
+  console.log('qweqwe');
+  console.log(req.body);
   var offerObj = {
     seller: req.body.seller,
     image_url: req.body.image_url,
     description: req.body.description,
     weight: req.body.weight,
     price: req.body.price,
+    category: req.body.category,
+    title: req.body.title,
     is_valid: 1
   }
 

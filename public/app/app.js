@@ -7,6 +7,8 @@ var app = angular.module('FjbHasilTani', [
   'mobile-angular-ui',
   'ui.router',
   'ngCookies',
+  'ngFileUpload',
+  'angular-cloudinary',
 
   // touch/drag feature: this is from 'mobile-angular-ui.gestures.js'
   // it is at a very beginning stage, so please be careful if you like to use
@@ -21,26 +23,19 @@ app.run(function($transform) {
   window.$transform = $transform;
 });
 
-//
-// You can configure ngRoute as always, but to take advantage of SharedState location
-// feature (i.e. close sidebar on backbutton) you should setup 'reloadOnSearch: false'
-// in order to avoid unwanted routing.
-//
-// app.config(function($routeProvider) {
-//   $routeProvider.when('/home',              {templateUrl: 'home.html', reloadOnSearch: false});
-//   $routeProvider.when('/scroll',        {templateUrl: 'scroll.html', reloadOnSearch: false});
-//   $routeProvider.when('/toggle',        {templateUrl: 'toggle.html', reloadOnSearch: false});
-//   $routeProvider.when('/tabs',          {templateUrl: 'tabs.html', reloadOnSearch: false});
-//   $routeProvider.when('/accordion',     {templateUrl: 'accordion.html', reloadOnSearch: false});
-//   $routeProvider.when('/overlay',       {templateUrl: 'overlay.html', reloadOnSearch: false});
-//   $routeProvider.when('/forms',         {templateUrl: 'forms.html', reloadOnSearch: false});
-//   $routeProvider.when('/dropdown',      {templateUrl: 'dropdown.html', reloadOnSearch: false});
-//   $routeProvider.when('/touch',         {templateUrl: 'touch.html', reloadOnSearch: false});
-//   $routeProvider.when('/swipe',         {templateUrl: 'swipe.html', reloadOnSearch: false});
-//   $routeProvider.when('/drag',          {templateUrl: 'drag.html', reloadOnSearch: false});
-//   $routeProvider.when('/drag2',         {templateUrl: 'drag2.html', reloadOnSearch: false});
-//   $routeProvider.when('/carousel',      {templateUrl: 'carousel.html', reloadOnSearch: false});
+app.config(function (cloudinaryProvider) {
+//   cloudinaryProvider.config({
+//     upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
+//     cloud_name: 'dvndkaqtk', // required
+//     upload_preset: 'wjrx5otn', // optional
 // });
+    cloudinaryProvider.config({
+      upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
+      cloud_name: 'tirtawr', // required
+      upload_preset: 'r2mdvcml' // optional
+  });
+});
+
 app.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
@@ -50,6 +45,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home',      {url: '/home'      , templateUrl: 'views/home.html',      controller: 'MainController', controllerAs: 'vmMain'})
     .state('login',     {url: '/login'     , templateUrl: 'views/login.html',     controller: 'LoginController'})
+    .state('offer-form',{url: '/offer-form', templateUrl: 'views/offer.form.html',controller: 'OfferFormController'})
     .state('scroll',    {url: '/scroll'    , templateUrl: 'views/scroll.html',    controller: 'MainController'})
     .state('toggle',    {url: '/toggle'    , templateUrl: 'views/toggle.html',    controller: 'MainController'})
     .state('tabs',      {url: '/tabs'      , templateUrl: 'views/tabs.html',      controller: 'MainController'})
@@ -247,6 +243,66 @@ app.directive('carouselItem', function($drag) {
       });
     }
   };
+});
+
+app.directive('input', function() {
+	return {
+		restrict: 'E',
+		require: '?ngModel',
+		link: function (scope, element, attrs, ngModel) {
+			if (attrs.type !== 'file' || !angular.isDefined(ngModel)) {
+				return;
+			}
+
+			element.on('change', updateModelWithFile);
+			scope.$on('$destroy', function () {
+				element.off('change', updateModelWithFile);
+			});
+
+			if (attrs.maxsize) {
+				var maxsize = parseInt(attrs.maxsize);
+				ngModel.$validators.maxsize = function(modelValue, viewValue) {
+					var value = modelValue || viewValue;
+					if (!angular.isArray(value)) {
+						value = [value];
+					}
+					for (var i = value.length - 1; i >= 0; i--) {
+						if (value[i] && value[i].size && value[i].size > maxsize) {
+							return false;
+						}
+					}
+					return true;
+				};
+			}
+
+			if (attrs.accept) {
+				var accept = attrs.accept.split(',');
+				ngModel.$validators.accept = function(modelValue, viewValue) {
+					var value = modelValue || viewValue;
+					if (!angular.isArray(value)) {
+						value = [value];
+					}
+					// for (var i = value.length - 1; i >= 0; i--) {
+					// 	if (value[i] && accept.indexOf(value[i].type) === -1) {
+					// 		return false;
+					// 	}
+					// }
+					return true;
+				};
+			}
+
+			function updateModelWithFile (event) {
+				var files = event.target.files;
+				if (!angular.isDefined(attrs.multiple)) {
+					files = files[0];
+				} else {
+					files = Array.prototype.slice.apply(files);
+				}
+				ngModel.$setViewValue(files, event);
+        ngModel.$commitViewValue();
+			}
+		}
+	};
 });
 
 app.directive('dragMe', ['$drag', function($drag){

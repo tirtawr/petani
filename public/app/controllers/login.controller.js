@@ -1,7 +1,3 @@
-//
-// For this trivial demo we have just a unique MainController
-// for everything
-//
 app.controller('LoginController', function($rootScope, $scope, $state, $cookies, $http){
   console.log('LoginController');
   $scope.loginForm = {

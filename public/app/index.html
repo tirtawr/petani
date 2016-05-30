@@ -23,11 +23,15 @@
     <script src="/dist/js/angular-ui-router.min.js"></script>
     <script src="/dist/js/underscore-min.js"></script>
     <script src="//code.angularjs.org/1.5.0/angular-cookies.min.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="/bower_components/angular-cloudinary/angular-cloudinary.js"></script>
 
     <!-- Application -->
     <script src="app.js"></script>
     <script src="controllers/main.controller.js"></script>
     <script src="controllers/login.controller.js"></script>
+    <script src="controllers/offer.form.controller.js"></script>
 
   </head>
 
@@ -64,7 +68,7 @@
           <div class="btn" ui-sref="login" ng-show="!helpers.isLoggedIn()">
             <i class="fa fa-sign-in"></i> Login
           </div>
-          <div class="btn" ui-sref="home" ng-show="helpers.isLoggedIn()">
+          <div class="btn" ui-sref="home" ng-click="helpers.logout()" ng-show="helpers.isLoggedIn()">
             <i class="fa fa-sign-out"></i> Logout
           </div>
         </div>
