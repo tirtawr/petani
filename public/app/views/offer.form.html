@@ -1,13 +1,13 @@
-<!-- <div ui-content-for="title">
-  <span>Forms</span>
-</div> -->
+<div ui-content-for="title">
+  <span>Tawarkan Produk</span>
+</div>
 
 <div class="scrollable">
  <div class="scrollable-content section">
 
   <form role="form" ng-submit='submitOffer()'>
     <fieldset>
-      <legend>Tawarkan Produk</legend>
+      <!-- <legend>Tawarkan Produk</legend> -->
         <div class="form-group">
           <label>Judul</label>
           <input type="text"
@@ -16,12 +16,14 @@
                 placeholder="Masukan Judul" required>
         </div>
 
+
+
         <div class="form-group">
           <label>Kategori</label>
-          <input type="text"
-                ng-model="offerForm.category"
-                class="form-control"
-                placeholder="Pilih Kategori" required>
+          <select class="form-control" ng-model="offerForm.category">
+            <option selected>Pilih Kategori...</option>
+            <option ng-repeat="o in productCategories track by $index">{{o}}</option>
+          </select>
         </div>
 
         <div class="form-group">

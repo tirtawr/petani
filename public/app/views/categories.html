@@ -1,0 +1,16 @@
+<div ui-content-for="title">
+  <span>Pilih Kategori</span>
+</div>
+
+<div class="scrollable">
+
+  <div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
+    <div class="list-group">
+      <a ng-repeat="item in productCategories track by $index" href="#" class="list-group-item">
+        {{ item }} <i class="fa fa-chevron-right pull-right"></i>
+      </a>
+    </div>
+  </div>
+
+
+</div>

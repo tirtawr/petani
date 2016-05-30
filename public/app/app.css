@@ -1,3 +1,16 @@
+.no-padding{
+padding:0px !important;
+}
+
+.no-margin{
+margin:0px !important;
+}
+
+.margin-bottom-5{
+margin-bottom: 5px !important;
+}
+
+
 #lightbulb {
   font-size: 100px;
   display: block;
@@ -109,7 +122,7 @@ h1 {
 }
 
 [drag-to-dismiss]{
-  transform: translate(0,0); /* NOTE: this is required to prevent mobile webkit issues */ 
+  transform: translate(0,0); /* NOTE: this is required to prevent mobile webkit issues */
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -142,7 +155,7 @@ h1 {
 }
 
 .list-group-item-home {
-  padding: 20px; 
+  padding: 20px;
 }
 
 pre {

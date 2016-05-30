@@ -6,13 +6,18 @@ app.controller('OfferFormController', function($rootScope, $scope, $state, $cook
     description: '',
     weight: '',
     price: '',
-    category: '',
+    category: 'Pilih Kategori...',
     title: ''
   };
+
+  $scope.productCategories = $rootScope.productCategories;
 
 
   $scope.submitOffer = function() {
     console.log('submitOffer');
+    if ($scope.offerForm.category == 'Pilih Kategori...') {
+      $scope.offerForm.category = 'Lainnya'
+    }
     var reqBody = {
       seller: $rootScope.user.username,
       image_url: $scope.offerForm.image_url,

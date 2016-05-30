@@ -6,6 +6,9 @@ app.controller('MainController', function($rootScope, $scope, $cookies){
   console.log('MainController');
   $scope.helpers = {}
 
+  $scope.productCategories = ['Cabe', 'Buah', 'Daun-daunan', 'Umbi', 'Lainnya'];
+  $rootScope.productCategories = $scope.productCategories;
+
   $rootScope.user = $cookies.getObject('user');
 
   $scope.swiped = function(direction) {
