@@ -1,14 +1,14 @@
-app.controller('MyOffersController', function($rootScope, $scope, $state, $cookies, $http, cloudinary){
-  console.log('MyOffersController');
+app.controller('OffersController', function($rootScope, $scope, $state, $stateParams, $cookies, $http, cloudinary){
+  console.log('OffersController');
   initController();
 
-  $scope.myOffers = [];
+  $scope.offers = [];
+  $scope.category = $stateParams.category
 
   function initController() {
     $http.get('/api/offer').then(function(res) {
       console.log(res);
-      $scope.myOffers = _.values(_.filter(res.data.data, function(o){return o.seller == $rootScope.user.username}));
-
+      $scope.offers = _.values(_.filter(res.data.data, function(o){return o.category == $scope.category}));
       }
     );
   }
