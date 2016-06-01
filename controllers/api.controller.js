@@ -2,6 +2,8 @@
 // var _ = require('underscore');
 var Firebase = require("firebase");
 var myFirebaseRef = new Firebase('https://brilliant-inferno-9906.firebaseio.com');
+var _ = require('underscore');
+
 
 
 exports.hello = function (req, res) {
@@ -20,7 +22,7 @@ exports.getName = function (req, res) {
   myFirebaseRef.child("currentName").on("value", function(snapshot) {
     if(!isSent){
       isSent = true;
-      res.json({status:"success", data:{name:snapshot.val()}});
+      res.json({status:"success", data:snapshot.val()});
     }
   });
 }
@@ -46,7 +48,9 @@ exports.getBuyer = function (req, res) {
   myFirebaseRef.child("buyer").on("value", function(snapshot) {
     if(!isSent){
       isSent = true;
-      res.json({status:"success", data:snapshot.val()});
+      var data = snapshot.val();
+      data = _.each(data, function(v,k,l) { v.id = k });
+      res.json({status:"success", data:data});
     }
   });
 }
@@ -71,7 +75,7 @@ exports.getBuyerById = function (req, res) {
   myFirebaseRef.child("buyer").child(req.params.id).on("value", function(snapshot) {
     if(!isSent){
       isSent = true;
-      res.json({status:"success", data:{name:snapshot.val()}});
+      res.json({status:"success", data:snapshot.val()});
     }
   });
 }
@@ -96,7 +100,9 @@ exports.getSeller = function (req, res) {
   myFirebaseRef.child("seller").on("value", function(snapshot) {
     if(!isSent){
       isSent = true;
-      res.json({status:"success", data:snapshot.val()});
+      var data = snapshot.val();
+      data = _.each(data, function(v,k,l) { v.id = k });
+      res.json({status:"success", data:data});
     }
   });
 }
@@ -121,7 +127,7 @@ exports.getSellerById = function (req, res) {
   myFirebaseRef.child("seller").child(req.params.id).on("value", function(snapshot) {
     if(!isSent){
       isSent = true;
-      res.json({status:"success", data:{name:snapshot.val()}});
+      res.json({status:"success", data:snapshot.val()});
     }
   });
 }
@@ -151,7 +157,9 @@ exports.getOffer = function (req, res) {
   myFirebaseRef.child("offer").on("value", function(snapshot) {
     if(!isSent){
       isSent = true;
-      res.json({status:"success", data:snapshot.val()});
+      var data = snapshot.val();
+      data = _.each(data, function(v,k,l) { v.id = k });
+      res.json({status:"success", data:data});
     }
   });
 }
@@ -177,7 +185,7 @@ exports.getOfferById = function (req, res) {
   myFirebaseRef.child("offer").child(req.params.id).on("value", function(snapshot) {
     if(!isSent){
       isSent = true;
-      res.json({status:"success", data:{name:snapshot.val()}});
+      res.json({status:"success", data:snapshot.val()});
     }
   });
 }
