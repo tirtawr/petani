@@ -2,8 +2,13 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
   console.log('OffersController');
   initController();
 
+
   $scope.offers = [];
-  $scope.category = $stateParams.category
+  $scope.category = $stateParams.category;
+  $scope.user = $rootScope.user;
+
+
+
 
   function initController() {
     $http.get('/api/offer').then(function(res) {
@@ -26,6 +31,26 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
       var j = (j = i.length) > 3 ? j % 3 : 0;
      return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
    };
+
+   $scope.buy = function(data) {
+     if (confirm('Yakin?')) {
+
+     }
+    console.log('buy');
+   }
+
+
+   $scope.contact = function(data) {
+     console.log('contact');
+     console.log(data);
+     $rootScope.seller_username = data.seller;
+     $rootScope.modal_content = 'NoTelp:085795980141 ';
+     $rootScope.modal_content += 'Lokasi:Bandung,Jawa_Barat ';
+     $rootScope.modal_content += 'WA:081231231231 ';
+     $rootScope.modal_content += 'BBM:FFJS9I ';
+
+     $rootScope.modal_title = 'Kontak Penjual';
+   }
 
 
 

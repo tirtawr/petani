@@ -4,16 +4,13 @@
 //
 app.controller('MainController', function($rootScope, $scope, $cookies){
   console.log('MainController');
-  $scope.helpers = {}
+  $rootScope.helpers = {}
 
-  $scope.productCategories = ['Cabe', 'Buah', 'Daun-daunan', 'Umbi', 'Lainnya'];
-  $rootScope.productCategories = $scope.productCategories;
+  $rootScope.productCategories = ['Cabe', 'Buah', 'Daun-daunan', 'Umbi', 'Lainnya'];
 
   $rootScope.user = $cookies.getObject('user');
 
-  $scope.swiped = function(direction) {
-    alert('Swiped ' + direction);
-  };
+
 
   // User agent displayed in home page
   $scope.userAgent = navigator.userAgent;
@@ -27,7 +24,7 @@ app.controller('MainController', function($rootScope, $scope, $cookies){
     $rootScope.loading = false;
   });
 
-  $scope.helpers.isLoggedIn = function() {
+  $rootScope.helpers.isLoggedIn = function() {
     if($rootScope.user){
       return true;
     }
@@ -36,13 +33,15 @@ app.controller('MainController', function($rootScope, $scope, $cookies){
     }
   }
 
-  $scope.helpers.logout = function() {
+  $rootScope.helpers.logout = function() {
     $rootScope.user = false;
+
     $cookies.remove('user');
   }
 
   // Fake text i used here and there.
-  $scope.lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel explicabo, aliquid eaque soluta nihil eligendi adipisci error, illum corrupti nam fuga omnis quod quaerat mollitia expedita impedit dolores ipsam. Obcaecati.';
+  $rootScope.modal_content = function() { return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel explicabo, aliquid eaque soluta nihil eligendi adipisci error, illum corrupti nam fuga omnis quod quaerat mollitia expedita impedit dolores ipsam. Obcaecati.' } ;
+  $rootScope.modal_title = 'Modal Title';
 
 
 

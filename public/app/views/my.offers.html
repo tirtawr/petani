@@ -22,8 +22,10 @@
               ui-show="myDropdown{{$index}}"
               ui-turn-off="myDropdown{{$index}}">
 
-              <li><a>Hapus</a></li>
-              <!-- <li class="divider"></li> -->
+              <li ng-click="delete(offer)"><a>Hapus</a></li>
+              <li class="divider"></li>
+              <li ng-click="sold(offer)"><a>Sudah Terjual</a></li>
+
             </ul>
           </div>
           <h3 class="panel-title">{{offer.title}}</h3>

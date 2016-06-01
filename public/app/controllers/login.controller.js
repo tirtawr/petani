@@ -3,7 +3,7 @@ app.controller('LoginController', function($rootScope, $scope, $state, $cookies,
   $scope.loginForm = {
     username: '',
     password: '',
-    role: 'buyer'
+    role: 'BUYER'
   }
 
   $scope.login = function() {
@@ -17,9 +17,10 @@ app.controller('LoginController', function($rootScope, $scope, $state, $cookies,
       var user = _.find(res.data.data, function(obj){ return obj.username == $scope.loginForm.username; });
       if (user) {
         console.log(user);
+				user.role = $scope.loginForm.role;
+				$rootScope.user = user;
         $cookies.putObject('user', user);
         $state.go('home');
-        $rootScope.user = user;
 
       }
       else {

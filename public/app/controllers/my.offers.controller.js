@@ -6,7 +6,7 @@ app.controller('MyOffersController', function($rootScope, $scope, $state, $cooki
 
   function initController() {
     $http.get('/api/offer').then(function(res) {
-      console.log(res);
+      // console.log(res);
       $scope.myOffers = _.values(_.filter(res.data.data, function(o){return o.seller == $rootScope.user.username}));
 
       }
@@ -26,6 +26,13 @@ app.controller('MyOffersController', function($rootScope, $scope, $state, $cooki
       var j = (j = i.length) > 3 ? j % 3 : 0;
      return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
    };
+
+	 $scope.delete = function(n) {
+	 	console.log('hapus', n);
+	 }
+   $scope.sell = function(n) {
+    console.log('sell', n);
+   }
 
 
 

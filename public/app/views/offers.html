@@ -22,7 +22,8 @@
               ui-show="myDropdown{{$index}}"
               ui-turn-off="myDropdown{{$index}}">
 
-              <li><a>Hapus</a></li>
+              <li ng-show="user.role == 'BUYER'" ng-click="buy(offer)"><a>Beli</a></li>
+              <li ng-show="user.role == 'BUYER'" ng-click="contact(offer)" ui-turn-on="modal1"><a>Kontak Penjual</a></li>
               <!-- <li class="divider"></li> -->
             </ul>
           </div>
@@ -35,7 +36,7 @@
           <label>Info</label>
           <div class="thumbnail margin-bottom-5">
             <ul class="no-margin">
-              <li>Penjual : {{ offer.seller }}/Kg</li>
+              <li>Penjual : {{ offer.seller }}</li>
               <li>Harga : {{ formatRupiah(offer.price) }}/Kg</li>
               <li>Berat : {{ offer.weight }} Kg</li>
             </ul>
