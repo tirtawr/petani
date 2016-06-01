@@ -20,12 +20,14 @@ app.controller('OfferFormController', function($rootScope, $scope, $state, $cook
     }
     var reqBody = {
       seller: $rootScope.user.username,
+      buyer: '',
       image_url: $scope.offerForm.image_url,
       description: $scope.offerForm.description,
       weight: $scope.offerForm.weight,
       price: $scope.offerForm.price,
       category: $scope.offerForm.category,
-      title: $scope.offerForm.title
+      title: $scope.offerForm.title,
+      is_valid : 1
     };
 
     $http.post('/api/offer', reqBody).then(function(res) {

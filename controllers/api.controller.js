@@ -137,13 +137,14 @@ exports.setOffer = function (req, res) {
   console.log(req.body);
   var offerObj = {
     seller: req.body.seller,
+    buyer: req.body.buyer,
     image_url: req.body.image_url,
     description: req.body.description,
     weight: req.body.weight,
     price: req.body.price,
     category: req.body.category,
     title: req.body.title,
-    is_valid: 1
+    is_valid: req.body.is_valid
   }
 
   var offerRef = myFirebaseRef.child("offer");
@@ -168,15 +169,16 @@ exports.editOfferById = function (req, res) {
   var isSent = false;
   var offerObj = {
     seller: req.body.seller,
+    buyer: req.body.buyer,
     image_url: req.body.image_url,
     description: req.body.description,
     weight: req.body.weight,
     price: req.body.price,
-    is_valid: 1
+    category: req.body.category,
+    title: req.body.title,
+    is_valid: req.body.is_valid
   }
-  myFirebaseRef.child("offer").child(req.params.id).set({
-
-  });
+  myFirebaseRef.child("offer").child(req.params.id).set(offerObj);
   res.json({status:"success", data: offerObj});
 }
 

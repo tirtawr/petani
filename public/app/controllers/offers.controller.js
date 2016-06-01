@@ -33,10 +33,23 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
    };
 
    $scope.buy = function(data) {
-     if (confirm('Yakin?')) {
-
+     if (confirm('Apakah and yakin?')) {
+       var reqObj = {
+         seller: $rootScope.user.username,
+         buyer: data.buyer,
+         image_url: data.image_url,
+         description: data.description,
+         weight: data.weight,
+         price: data.price,
+         category: data.category,
+         title: data.title,
+         is_valid: 0
+       }
+       $http.put('/api/offer/'+data.id, reqObj).then(function(res) {
+         console.log(res);
+       });
      }
-    console.log('buy');
+
    }
 
 
