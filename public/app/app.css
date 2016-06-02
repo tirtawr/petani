@@ -1,3 +1,26 @@
+.green {
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+  color: #3c763d !important;
+}
+
+.blue {
+  color: #31708f !important;
+  background-color: #d9edf7 !important;
+  border-color: #bce8f1 !important;
+}
+
+.yellow {
+  color: #8a6d3b !important;
+  background-color: #fcf8e3 !important;
+  border-color: #faebcc !important;
+}
+
+.red {
+  color: #a94442 !important;
+  background-color: #f2dede !important;
+  border-color: #ebccd1 !important;
+}
 .no-padding{
 padding:0px !important;
 }

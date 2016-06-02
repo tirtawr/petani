@@ -7,50 +7,56 @@
     <div class="section">
 
       <div class="panel panel-default" ng-repeat="offer in myOffers track by $index">
-        <div class="panel-heading">
-          <div class="btn-group pull-right">
-            <a ui-turn-on='myDropdown{{$index}}' class='btn'>
-              <i class="fa fa-ellipsis-v"></i>
-            </a>
-            <ul
-              ui-state="myDropdown{{$index}}"
+        <div ng-if="offer.is_valid == 1">
+          <div class="panel-heading" ng-class="offer.buyer == '' ? 'blue' : 'green'">
+            <div class="btn-group pull-right">
+              <a ui-turn-on='myDropdown{{$index}}' class='btn'>
+                <i class="fa fa-ellipsis-v"></i>
+              </a>
+              <ul
+                ui-state="myDropdown{{$index}}"
 
-              class="dropdown-menu"
-              ui-outer-click="Ui.turnOff('myDropdown' + $index)"
-              ui-outer-click-if="Ui.active('myDropdown' + $index)"
-              role="menu"
-              ui-show="myDropdown{{$index}}"
-              ui-turn-off="myDropdown{{$index}}">
+                class="dropdown-menu"
+                ui-outer-click="Ui.turnOff('myDropdown' + $index)"
+                ui-outer-click-if="Ui.active('myDropdown' + $index)"
+                role="menu"
+                ui-show="myDropdown{{$index}}"
+                ui-turn-off="myDropdown{{$index}}">
 
-              <li ng-click="delete(offer)"><a>Hapus</a></li>
-              <li class="divider"></li>
-              <li ng-click="sold(offer)"><a>Sudah Terjual</a></li>
+                <li ng-if="user.role == 'SELLER'" ng-click="delete(offer)"><a>Hapus</a></li>
+                <li ng-if="offer.buyer != '' && user.role == 'SELLER'" class="divider"></li>
+                <li ng-if="offer.buyer != ''" ng-click="contact(offer)" ui-turn-on="modal1"><a>Kontak Pembeli</a></li>
+                <li class="divider" ng-if="user.role == 'SELLER'"></li>
+                <li ng-click="sold(offer)" ng-if="user.role == 'SELLER'"><a>{{ offer.buyer == '' ? 'Sudah Terjual' : 'Konfirmasi Penjualan'}}</a></li>
+                <li class="divider" ng-if="user.role == 'BUYER'"></li>
+                <li ng-click="cancel(offer)" ng-if="user.role == 'BUYER'"><a>Cancel</a></li>
 
-            </ul>
+              </ul>
+            </div>
+            <h3 class="panel-title">{{offer.title}}</h3>
           </div>
-          <h3 class="panel-title">{{offer.title}}</h3>
-        </div>
-        <div class="panel-body">
-          <div class="thumbnail margin-bottom-5">
-            <img src="{{ offer.image_url }}" alt="image">
-          </div>
-          <label>Info</label>
-          <div class="thumbnail margin-bottom-5">
-            <ul class="no-margin">
-              <li>Kategori : {{ offer.category }}</li>
-              <li>Harga : {{ formatRupiah(offer.price) }}/Kg</li>
-              <li>Berat : {{ offer.weight }} Kg</li>
-            </ul>
-          </div>
+          <div class="panel-body">
+            <div class="thumbnail margin-bottom-5">
+              <img src="{{ offer.image_url }}" alt="image">
+            </div>
+            <label>Info</label>
+            <div class="thumbnail margin-bottom-5">
+              <ul class="no-margin">
+                <li>Kategori : {{ offer.category }}</li>
+                <li>Harga : {{ formatRupiah(offer.price) }}/Kg</li>
+                <li>Berat : {{ offer.weight }} Kg</li>
+                <li>Status : {{ offer.buyer == '' ? 'Belum ada pembeli' : 'Sudah ada pembeli'}}</li>
+              </ul>
+            </div>
 
-          <label>Deskripsi</label>
-          <div class="thumbnail margin-bottom-5">
-            {{ offer.description }}
-          </div>
+            <label>Deskripsi</label>
+            <div class="thumbnail margin-bottom-5">
+              {{ offer.description }}
+            </div>
 
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
