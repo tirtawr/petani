@@ -47,7 +47,7 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
        }
        $http.put('/api/offer/'+data.id, reqObj).then(function(res) {
          console.log(res);
-         state.go('my-offers')
+         $state.go('my-offers')
        });
      }
 
