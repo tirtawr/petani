@@ -10,6 +10,8 @@ app.controller('OfferFormController', function($rootScope, $scope, $state, $cook
     title: ''
   };
 
+  $scope.isUploading = false;
+
   $scope.productCategories = $rootScope.productCategories;
 
 
@@ -41,11 +43,13 @@ app.controller('OfferFormController', function($rootScope, $scope, $state, $cook
   $scope.$watch('uploadedFile', function(uploadedFile) {
     if (uploadedFile) {
       // Use the service to upload the file
+      $scope.isUploading = true;
       cloudinary.upload(uploadedFile, { /* cloudinary options here */ })
       // This returns a promise that can be used for result handling
       .then(function (res) {
         console.log(res);
         $scope.offerForm.image_url = res.data.secure_url;
+        $scope.isUploading = false;
       });
 
     }

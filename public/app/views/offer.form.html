@@ -45,8 +45,10 @@
 
         <div class="form-group">
           <label>Foto Produk</label>
-          <div class="thumbnail">
-            <img src="{{offerForm.image_url}}" alt="...">
+          <div class="thumbnail product-image-wrapper">
+
+            <img ng-show="isUploading" ng-src="/dist/images/preloader.gif" alt="..." class="top-80">
+            <img ng-show="!isUploading" src="{{offerForm.image_url}}" alt="..." class="product-image">
           </div>
           <!-- <input type="file" style="display: none;" class="btn btn-default form-control" accept="image/*"> -->
           <label class="btn btn-default btn-file form-control">
