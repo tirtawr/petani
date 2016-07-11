@@ -1,42 +1,43 @@
 {
   "app_name":"Petani",
-  "sellers": [
-    {
+  "sellers": {
+    "-KIhDlsTFuAYlnl4x-1M":{
       "username":"seller0",
-      "email":"user0@user.com",
+      "email":"seller0@user.com",
       "password":"password0",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
       "is_active":1
     },
-    {
+    "-KIhDlsTFuAYlnl4x-2M":{
       "username":"seller1",
-      "email":"user1@user.com",
+      "email":"seller1@user.com",
       "password":"password1",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
       "is_active":1
     }
-  ],
-  "buyers": [
-    {
+  },
+  "buyers": {
+    "-KIhDlsTFuAYlnl4x-1M":{
       "username":"buyer0",
-      "email":"user0@user.com",
+      "email":"buyer0@user.com",
       "password":"password0",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
       "is_active":1
     },
-    {
+    "-KIhDlsTFuAYlnl4x-2M":{
       "username":"buyer1",
-      "email":"user1@user.com",
+      "email":"buyer1@user.com",
       "password":"password1",
       "image_url":"https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
       "is_active":1
     }
-  ],
-  "offers":[
-    {
+  },
+  "offers":{
+    "-KIhDlsTFuAYlnl4x-1M":{
       "id":0,
-      "offerer_email":"user0@user.com",
+      "seller_email":"seller0@user.com",
       "weight":400,
+      "category_id":29,
       "image_url":[
         "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
         "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg"
@@ -44,10 +45,11 @@
       "description":"Sayur tomat segar",
       "is_valid":0
     },
-    {
+    "-KIhDlsTFuAYlnl4x-2M":{
       "id":1,
-      "offerer_email":"user1@user.com",
+      "seller_email":"seller1@user.com",
       "weight":30,
+      "category_id":22,
       "image_url":[
         "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg",
         "https://res.cloudinary.com/dvndkaqtk/image/upload/h_60/v1460008843/jriwfyabhsadluyus23r.jpg"
@@ -55,11 +57,13 @@
       "description":"Cabe merah segar",
       "is_valid":1
     }
-  ],
-  "transactions":[
-
-  ]
-
+  },
+  "transactions":{
+    "-KIhDlsTFuAYlnl4x-1M":{
+      "offer_id":0,
+      "buyer_email":"buyer1@user.com"
+    }
+  }
 }
 
 Login (buyer/seller)

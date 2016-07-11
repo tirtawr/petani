@@ -1,0 +1,54 @@
+<div ui-content-for="title">
+  <span>{{category}}</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="section">
+
+      <div class="panel panel-default" ng-repeat="item in items track by $index" ng-if="true">
+        <div>
+
+          <div class="panel-heading blue">
+            <h3 class="panel-title">{{item.title}}</h3>
+          </div>
+
+          <div class="panel-body">
+
+            <label style="font-size:1.2em">Tiga Hari Terakhir</label>
+            <div class="thumbnail margin-bottom-5" style="padding-left:17px;">
+                <strong>Harga:</strong> {{ formatRupiah(item.price_three_days) }}/Kg
+                <br/>
+                <strong>Total Penjualan:</strong> {{ item.volume_three_days }} Kg
+            </div>
+
+            <label style="font-size:1.2em">Seminggu Terakhir</label>
+            <div class="thumbnail margin-bottom-5" style="padding-left:17px;">
+                <strong>Harga:</strong> {{ formatRupiah(item.price_week) }}/Kg
+                <br/>
+                <strong>Total Penjualan:</strong> {{ item.volume_week }} Kg
+
+            </div>
+
+            <label style="font-size:1.2em">Sebulan Terakhir</label>
+            <div class="thumbnail margin-bottom-5" style="padding-left:17px;">
+                <strong>Harga:</strong> {{ formatRupiah(item.price_month) }}/Kg
+                <br/>
+                <strong>Total Penjualan:</strong> {{ item.volume_month }} Kg
+
+            </div>
+
+            <label style="font-size:1.2em">Setahun Terakhir</label>
+            <div class="thumbnail margin-bottom-5" style="padding-left:17px;">
+                <strong>Harga:</strong> {{ formatRupiah(item.price_year) }}/Kg
+                <br/>
+                <strong>Total Penjualan:</strong> {{ item.volume_year }} Kg
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

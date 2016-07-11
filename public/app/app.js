@@ -48,9 +48,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('offer-form',{url: '/offer-form', templateUrl: 'views/offer.form.html',controller: 'OfferFormController'})
     .state('my-offers', {url: '/my-offers' , templateUrl: 'views/my.offers.html', controller: 'MyOffersController'})
     .state('categories',{url: '/categories', templateUrl: 'views/categories.html',controller: 'MainController'})
+    .state('data-categories',{url: '/data-categories', templateUrl: 'views/data.categories.html',controller: 'MainController'})
     .state('offers'    ,{url: '/offers/:category', templateUrl: 'views/offers.html',controller: 'OffersController'})
+    .state('data-portal'    ,{url: '/data-portal/:category', templateUrl: 'views/data.portal.html',controller: 'DataPortalController'})
     .state('confirm-offer',     {url: '/confirm-offer/:id'     , templateUrl: 'views/confirm.offer.html',     controller: 'ConfirmOfferController'})
-
     .state('toggle',    {url: '/toggle'    , templateUrl: 'views/toggle.html',    controller: 'MainController'})
     .state('tabs',      {url: '/tabs'      , templateUrl: 'views/tabs.html',      controller: 'MainController'})
     .state('accordion', {url: '/accordion' , templateUrl: 'views/accordion.html', controller: 'MainController'})
