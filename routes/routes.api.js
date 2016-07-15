@@ -8,9 +8,9 @@ router.post('/name', apiController.setName);
 
 router.get('/name', apiController.getName);
 
-router.post('/user', apiController.setUser); //Deprecated
+router.post('/user', apiController.setUser);
 
-router.get('/user', apiController.getUser); //Deprecated
+router.get('/user', apiController.getUser);
 
 router.post('/buyer', apiController.setBuyer); //Deprecated
 
