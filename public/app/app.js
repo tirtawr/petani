@@ -45,6 +45,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home',      {url: '/home'      , templateUrl: 'views/home.html',      controller: 'MainController', controllerAs: 'vmMain'})
     .state('login',     {url: '/login'     , templateUrl: 'views/login.html',     controller: 'LoginController'})
+    .state('register',  {url: '/register'  , templateUrl: 'views/register.html',  controller: 'RegisterController'})
     .state('offer-form',{url: '/offer-form', templateUrl: 'views/offer.form.html',controller: 'OfferFormController'})
     .state('my-offers', {url: '/my-offers' , templateUrl: 'views/my.offers.html', controller: 'MyOffersController'})
     .state('categories',{url: '/categories', templateUrl: 'views/categories.html',controller: 'MainController'})

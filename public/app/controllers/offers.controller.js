@@ -14,8 +14,8 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
     $http.get('/api/offer').then(function(res) {
       console.log(res);
       $scope.offers = _.values(_.filter(res.data.data, function(o){return o.category == $scope.category}));
-      }
-    );
+      $scope.offers.reverse();
+    });
   }
 
   $scope.formatRupiah = function(amount) {

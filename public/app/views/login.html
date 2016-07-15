@@ -13,7 +13,7 @@
           <input type="text"
                 ng-model="loginForm.username"
                 class="form-control"
-                placeholder="Masukan Username Anda">
+                placeholder="Masukan Username Anda" required>
         </div>
 
         <div class="form-group">
@@ -21,19 +21,9 @@
           <input type="password"
                 ng-model="loginForm.password"
                 class="form-control"
-                placeholder="Password">
+                placeholder="Password" required>
         </div>
 
-        <div class="form-group">
-          <label>Apakah Anda Pembeli atau Penjual?</label>
-          <div class="btn-group justified nav-tabs">
-            <a ng-click="loginForm.role = 'BUYER'"
-            ng-class="loginForm.role == 'BUYER' ? 'active' : ''" class="btn btn-default">Pembeli</a>
-
-            <a ng-click="loginForm.role = 'SELLER'"
-            ng-class="loginForm.role == 'SELLER' ? 'active' : ''" class="btn btn-default">Penjual</a>
-          </div>
-        </div>
 
     </fieldset>
     <hr>

@@ -8,21 +8,25 @@ router.post('/name', apiController.setName);
 
 router.get('/name', apiController.getName);
 
-router.post('/buyer', apiController.setBuyer);
+router.post('/user', apiController.setUser); //Deprecated
 
-router.get('/buyer', apiController.getBuyer);
+router.get('/user', apiController.getUser); //Deprecated
 
-router.get('/buyer/:id', apiController.getBuyerById);
+router.post('/buyer', apiController.setBuyer); //Deprecated
 
-router.put('/buyer/:id', apiController.editBuyerById);
+router.get('/buyer', apiController.getBuyer); //Deprecated
 
-router.post('/seller', apiController.setSeller);
+router.get('/buyer/:id', apiController.getBuyerById); //Deprecated
 
-router.get('/seller', apiController.getSeller);
+router.put('/buyer/:id', apiController.editBuyerById); //Deprecated
 
-router.get('/seller/:id', apiController.getSeller);
+router.post('/seller', apiController.setSeller); //Deprecated
 
-router.put('/seller/:id', apiController.editSellerById);
+router.get('/seller', apiController.getSeller); //Deprecated
+
+router.get('/seller/:id', apiController.getSeller); //Deprecated
+
+router.put('/seller/:id', apiController.editSellerById); //Deprecated
 
 router.post('/offer', apiController.setOffer);
 
@@ -36,7 +40,7 @@ router.put('/offer/:id', apiController.editOfferById);
 router.get('/', function(req, res) {
 
   var jsonData = {
-  	'name': 'POSEIDON',
+  	'name': 'PETANI',
   	'api-status':'OK'
   }
 

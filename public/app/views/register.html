@@ -1,0 +1,75 @@
+<div ui-content-for="title">
+  <span>Pendaftaran</span>
+</div>
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+
+  <form role="form" ng-submit='register()'>
+    <fieldset>
+      <legend>Formulir Pendaftaran</legend>
+        <div class="form-group has-success has-feedback">
+          <label>Username</label>
+          <input type="text"
+                ng-model="registerForm.username"
+                class="form-control"
+                placeholder="Masukan Username yang Anda Inginkan" required>
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password"
+                ng-model="registerForm.password"
+                class="form-control"
+                placeholder="Password" required>
+        </div>
+
+        <div class="form-group">
+          <label>Apakah Anda Pembeli atau Penjual?</label>
+          <div class="btn-group justified nav-tabs">
+            <a ng-click="registerForm.role = 'BUYER'"
+            ng-class="registerForm.role == 'BUYER' ? 'active' : ''" class="btn btn-default">Pembeli</a>
+
+            <a ng-click="registerForm.role = 'SELLER'"
+            ng-class="registerForm.role == 'SELLER' ? 'active' : ''" class="btn btn-default">Penjual</a>
+          </div>
+        </div>
+
+        <div class="form-group has-success has-feedback">
+          <label>Kota</label>
+          <input type="text"
+                ng-model="registerForm.city"
+                class="form-control"
+                placeholder="Masukan Kota Anda" required>
+        </div>
+
+        <div class="form-group has-success has-feedback">
+          <label>No Telp</label>
+          <input type="number"
+                ng-model="registerForm.phone"
+                class="form-control"
+                placeholder="Masukan No Telp Anda" required>
+        </div>
+
+        <div class="form-group has-success has-feedback">
+          <label>Pin BBM</label>
+          <input type="text"
+                ng-model="registerForm.bbm"
+                class="form-control"
+                placeholder="Masukan Pin BBM Anda (Jika ada)">
+        </div>
+
+    </fieldset>
+    <hr>
+
+    <button class="btn btn-primary btn-block">
+      Daftar
+    </button>
+
+    <!-- <div ui-content-for="navbarAction">
+      <a class='btn' ng-click='login()'>Pendaftaran</a>
+    </div> -->
+
+  </form>
+ </div>
+</div>

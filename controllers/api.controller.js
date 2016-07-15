@@ -27,6 +27,58 @@ exports.getName = function (req, res) {
   });
 }
 
+exports.setUser = function (req, res) {
+  var userObj = {
+    username: req.body.username,
+    password: req.body.password,
+    role: req.body.role,
+    city: req.body.city,
+    phone: req.body.phone,
+    bbm: req.body.bbm ? req.body.bbm : ''
+  }
+
+  var isSent = false;
+  myFirebaseRef.child("user").on("value", function(snapshot) {
+    if(!isSent){
+      isSent = true;
+      var data = snapshot.val();
+      data = _.each(data, function(v,k,l) { v.id = k });
+
+      var doesDuplicateExist = false;
+      _.each(data, function(val, key, list) {
+        if (val.username == userObj.username) {
+          doesDuplicateExist = true;
+        }
+      });
+
+      if (doesDuplicateExist) {
+        res.status(409).json({status:"failed", message:"username already exist"});
+      }
+      else {
+        var userRef = myFirebaseRef.child("user");
+        userRef.push().set(userObj);
+
+        res.json({status:"success", data:userObj});
+      }
+    }
+  });
+
+
+
+}
+
+exports.getUser = function (req, res) {
+  var isSent = false;
+  myFirebaseRef.child("user").on("value", function(snapshot) {
+    if(!isSent){
+      isSent = true;
+      var data = snapshot.val();
+      data = _.each(data, function(v,k,l) { v.id = k });
+      res.json({status:"success", data:data});
+    }
+  });
+}
+
 
 exports.setBuyer = function (req, res) {
   var buyerObj = {

@@ -15,6 +15,8 @@ app.controller('MyOffersController', function($rootScope, $scope, $state, $cooki
         $scope.myOffers = _.values(_.filter(res.data.data, function(o){return o.seller == $rootScope.user.username}));
       }
 
+      $scope.myOffers.reverse();
+
       }
     );
   }
