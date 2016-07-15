@@ -6,7 +6,7 @@
   <div class="scrollable-content">
     <div class="section">
 
-      <div class="panel panel-default" ng-repeat="offer in offers track by $index" ng-if="offer.buyer == ''">
+      <div class="panel panel-default" ng-repeat="offer in offers track by $index">
         <div>
 
           <div class="panel-heading blue">
@@ -42,6 +42,7 @@
                 <li>Penjual : {{ offer.seller }}</li>
                 <li>Harga : {{ formatRupiah(offer.price) }}/Kg</li>
                 <li>Berat : {{ offer.weight }} Kg</li>
+                <li>Peminat : {{ offer.buyer.length == 0 ? 'Belum ada peminat' : offer.buyer.length + ' peminat'}}</li>
               </ul>
             </div>
 

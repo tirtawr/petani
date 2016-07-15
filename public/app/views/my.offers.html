@@ -25,7 +25,7 @@
 
                 <li ng-if="user.role == 'SELLER'" ng-click="delete(offer)"><a>Hapus</a></li>
                 <li ng-if="offer.buyer != '' && user.role == 'SELLER'" class="divider"></li>
-                <li ng-if="offer.buyer != ''" ng-click="contact(offer)" ui-turn-on="modal1"><a>Kontak Pembeli</a></li>
+                <li ng-if="offer.buyer != ''" ng-click="contact(offer)" ui-turn-on="modal1"><a>Kontak {{ user.role == 'SELLER' ? 'Peminat' : 'Penjual' }}</a></li>
                 <li class="divider" ng-if="user.role == 'SELLER'"></li>
                 <li ng-click="sold(offer)" ng-if="user.role == 'SELLER'"><a>{{ offer.buyer == '' ? 'Sudah Terjual' : 'Konfirmasi Penjualan'}}</a></li>
                 <li class="divider" ng-if="user.role == 'BUYER'"></li>
@@ -45,7 +45,7 @@
                 <li>Kategori : {{ offer.category }}</li>
                 <li>Harga : {{ formatRupiah(offer.price) }}/Kg</li>
                 <li>Berat : {{ offer.weight }} Kg</li>
-                <li>Status : {{ offer.buyer == '' ? 'Belum ada pembeli' : 'Sudah ada pembeli'}}</li>
+                <li>Peminat : {{ offer.buyer.length == 0 ? 'Belum ada peminat' : offer.buyer.length + ' peminat'}}</li>
               </ul>
             </div>
 

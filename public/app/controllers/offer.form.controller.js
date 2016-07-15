@@ -22,7 +22,7 @@ app.controller('OfferFormController', function($rootScope, $scope, $state, $cook
     }
     var reqBody = {
       seller: $rootScope.user.username,
-      buyer: '',
+      buyer: '[]',
       image_url: $scope.offerForm.image_url,
       description: $scope.offerForm.description,
       weight: $scope.offerForm.weight,
@@ -41,6 +41,9 @@ app.controller('OfferFormController', function($rootScope, $scope, $state, $cook
   }
 
   $scope.$watch('uploadedFile', function(uploadedFile) {
+    console.log('Hello');
+    console.log(uploadedFile);
+    console.log($scope.uploadedFile);
     if (uploadedFile) {
       // Use the service to upload the file
       $scope.isUploading = true;

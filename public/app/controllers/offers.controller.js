@@ -13,7 +13,10 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
   function initController() {
     $http.get('/api/offer').then(function(res) {
       console.log(res);
-      $scope.offers = _.values(_.filter(res.data.data, function(o){return o.category == $scope.category}));
+      $scope.offers = _.values(_.filter(res.data.data, function(o){
+        o.buyer = JSON.parse(o.buyer)
+        return o.category == $scope.category && o.is_valid == 1
+      }));
       $scope.offers.reverse();
     });
   }
@@ -34,8 +37,9 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
 
    $scope.buy = function(data) {
      if (confirm('Apakah and yakin?')) {
+       data.buyer.push($rootScope.user.username);
        var reqObj = {
-         buyer: $rootScope.user.username,
+         buyer: JSON.stringify(data.buyer).toString(),
          seller: data.seller,
          image_url: data.image_url,
          description: data.description,
@@ -55,12 +59,19 @@ app.controller('OffersController', function($rootScope, $scope, $state, $statePa
 
 
    $scope.contact = function(data) {
-     console.log('contact');
-     console.log(data);
-     $rootScope.seller_username = data.seller;
-     $rootScope.modal_content = 'NoTelp:085795980141 Lokasi:Bandung,Jawa_Barat WA:081231231231 BBM:FFJS9I ';
-
      $rootScope.modal_title = 'Kontak Penjual';
+
+     $http.get('/api/user').then(function(res) {
+       console.log(res.data.data);
+       _.each(res.data.data, function(val, key, list) {
+         if (val.username == data.seller) {
+           $rootScope.modal_seller = val;
+         }
+       })
+     });
+
+     $rootScope.modal_offer_data = data;
+     $rootScope.modal_type = 'CONTACT_SELLER';
    }
 
 
