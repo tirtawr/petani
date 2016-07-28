@@ -24,7 +24,8 @@ app.controller('RegisterController', function($rootScope, $scope, $state, $cooki
       password: $scope.registerForm.password,
       role: $scope.registerForm.role,
       city: $scope.registerForm.city,
-      phone: $scope.registerForm.phone
+      phone: $scope.registerForm.phone,
+      bbm: $scope.registerForm.bbm
     }).then(function success(res) {
       console.log(res);
       alert('Anda berhasil daftar! Silahkan melakukan login.');
