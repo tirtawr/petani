@@ -19,33 +19,57 @@
             Bagaimana kabarmu hari ini?
         </div>
       </div>
-      <div ng-show="true" class="list-group-item list-group-item-home">
+      <div class="list-group-item list-group-item-home">
         <div>
           <i class="fa fa-money feature-icon text-primary"></i>
         </div>
-        <div>
+        <div ng-show="!helpers.isLoggedIn()">
             <h3 class="home-heading">Jual/Beli Hasil Tani Anda</h3>
             Dengan aplikasi ini, anda dapat melakukan jual/beli hasil tani dengan penjual maupun pembeli di seluruh Jawa Barat. Pembeli maupun penjual pasti untung!
         </div>
+        <div ng-show="helpers.isLoggedIn() && user.role == 'BUYER'">
+            <h3 class="home-heading">Beli Hasil Tani yang Anda Butuhkan</h3>
+            Dengan aplikasi ini, anda dapat melakukan pembelian hasil tani dengan penjual di seluruh Jawa Barat. Akses anda terhadap produk bertambah dan anda akan diuntungkan!
+        </div>
+        <div ng-show="helpers.isLoggedIn() && user.role == 'SELLER'">
+            <h3 class="home-heading">Jual Hasil Tani Anda</h3>
+            Dengan aplikasi ini, anda dapat melakukan penjualan hasil tani dengan pembeli di seluruh Jawa Barat. Keuntungan anda akan bertambah!
+        </div>
       </div>
-      <div ng-show="true" class="list-group-item list-group-item-home">
+      <div class="list-group-item list-group-item-home">
         <div>
           <i class="fa fa-group feature-icon text-primary"></i>
         </div>
-        <div>
+        <div ng-show="!helpers.isLoggedIn()">
             <h3 class="home-heading">Dapatkan Kontak Penjual/Pembeli dengan Mudah</h3>
             Kontak penjual/pembeli dapat langsung anda dapatkan untuk mengkordinasikan pembelian. Anda dapat bertemu dan berbicara secara langsung, tanpa melalui proses yang sulit.
         </div>
+        <div ng-show="helpers.isLoggedIn() && user.role == 'BUYER'">
+            <h3 class="home-heading">Dapatkan Kontak Penjual dengan Mudah</h3>
+            Kontak penjual dapat langsung anda dapatkan untuk mengkordinasikan pembelian. Anda dapat bertemu dan berbicara secara langsung, tanpa melalui proses yang sulit.
+        </div>
+        <div ng-show="helpers.isLoggedIn() && user.role == 'SELLER'">
+            <h3 class="home-heading">Dapatkan Kontak Pembeli dengan Mudah</h3>
+            Kontak pembeli dapat langsung anda dapatkan untuk mengkordinasikan pembelian. Anda dapat bertemu dan berbicara secara langsung, tanpa melalui proses yang sulit.
+        </div>
+
       </div>
-      <div ng-show="true" class="list-group-item list-group-item-home">
+      <div class="list-group-item list-group-item-home">
         <div>
           <i class="fa fa-thumbs-o-up feature-icon text-primary"></i>
         </div>
-        <div>
+        <div ng-show="!helpers.isLoggedIn()">
             <h3 class="home-heading">Transaksi Aman dengan Konsep COD</h3>
-            Anda tidak perlu cemas tentang penipuan karena transaksi dilakukan secara COD. Anda akan bertemu secara langsung dengan pembeli/penual dan pembayaran dilakukan secara tunai.
+            Anda tidak perlu cemas tentang penipuan karena transaksi dilakukan secara COD. Anda akan bertemu secara langsung dengan pembeli/penjual dan pembayaran dilakukan secara tunai.
         </div>
-
+        <div ng-show="helpers.isLoggedIn() && user.role == 'BUYER'">
+            <h3 class="home-heading">Transaksi Aman dengan Konsep COD</h3>
+            Anda tidak perlu cemas tentang penipuan karena transaksi dilakukan secara COD. Anda akan bertemu secara langsung dengan pembeli dan pembayaran dilakukan secara tunai.
+        </div>
+        <div ng-show="helpers.isLoggedIn() && user.role == 'SELLER'">
+            <h3 class="home-heading">Transaksi Aman dengan Konsep COD</h3>
+            Anda tidak perlu cemas tentang penipuan karena transaksi dilakukan secara COD. Anda akan bertemu secara langsung dengan penjual dan pembayaran dilakukan secara tunai.
+        </div>
       </div>
 
 

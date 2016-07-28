@@ -47,24 +47,49 @@ app.controller('MyOffersController', function($rootScope, $scope, $state, $cooki
    };
 
 	 $scope.delete = function(data) {
-     if (confirm('Apakah anda yakin?')) {
-       var reqObj = {
-         buyer: '',
-         seller: data.seller,
-         image_url: data.image_url,
-         description: data.description,
-         weight: data.weight,
-         price: data.price,
-         category: data.category,
-         title: data.title,
-         is_valid: 0
+     if ($scope.user.role == 'SELLER') {
+       if (confirm('Apakah anda yakin?')) {
+         var reqObj = {
+           buyer: '[]',
+           seller: data.seller,
+           image_url: data.image_url,
+           description: data.description,
+           weight: data.weight,
+           price: data.price,
+           category: data.category,
+           title: data.title,
+           is_valid: 0
+         }
+         $http.put('/api/offer/'+data.id, reqObj).then(function(res) {
+           console.log(res);
+           $state.reload()
+         });
        }
-       $http.put('/api/offer/'+data.id, reqObj).then(function(res) {
-         console.log(res);
-         $state.reload()
-       });
-     } else {
-
+     }
+     else {
+       if (confirm('Apakah anda yakin?')) {
+         var buyers = []
+         for (var i = 0; i < data.buyer.length; i++) {
+           if (data.buyer[i] != $scope.user.username) {
+             buyers.push(data.buyer[i]);
+           }
+         }
+         var reqObj = {
+           buyer: JSON.stringify(buyers),
+           seller: data.seller,
+           image_url: data.image_url,
+           description: data.description,
+           weight: data.weight,
+           price: data.price,
+           category: data.category,
+           title: data.title,
+           is_valid: 0
+         }
+         $http.put('/api/offer/'+data.id, reqObj).then(function(res) {
+           console.log(res);
+           $state.reload()
+         });
+       }
      }
    }
    $scope.sold = function(data) {
