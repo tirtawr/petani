@@ -22,7 +22,7 @@ app.controller('MyOffersController', function($rootScope, $scope, $state, $cooki
       else{
         $scope.myOffers = _.values(_.filter(res.data.data, function(o){
           o.buyer = JSON.parse(o.buyer)
-          return o.seller == $rootScope.user.username && o.is_valid == 1
+          return o.seller == $rootScope.user.username && o.is_valid > 0
         }));
       }
 
