@@ -7,8 +7,8 @@
   <div class="scrollable-content">
     <div class="section">
 
-      <div class="panel panel-default" ng-repeat="offer in myOffers track by $index" ng-if="offer.is_valid == 1">
-        <div ng-if="offer.is_valid == 1">
+      <div class="panel panel-default" ng-repeat="offer in myOffers track by $index" ng-if="offer.is_valid > 0">
+        <div>
           <div class="panel-heading" ng-class="offer.buyer == '' ? 'blue' : 'green'">
             <div class="btn-group pull-right">
               <a ui-turn-on='myDropdown{{$index}}' class='btn btn-defaul'>
@@ -46,8 +46,8 @@
                 <li>Kategori : {{ offer.category }}</li>
                 <li>Harga : {{ formatRupiah(offer.price) }}/Kg</li>
                 <li>Berat : {{ offer.weight }} Kg</li>
-                <li ng-if="offer.is_valid == 2 && user.role == 'SELLER">Status: TERJUAL</li>
-                <li ng-if="offer.is_valid == 2 && user.role == 'BUYER">Status: SUDAH DIBELI</li>
+                <li ng-if="offer.is_valid == 2 && user.role == 'SELLER'">Status: TERJUAL</li>
+                <li ng-if="offer.is_valid == 2 && user.role == 'BUYER'">Status: SUDAH DIBELI</li>
                 <li ng-if="offer.is_valid == 1"></li>
                 <li ng-if="offer.is_valid == 1">Peminat : {{ offer.buyer.length == 0 ? 'Belum ada peminat' : offer.buyer.length + ' peminat'}}</li>
               </ul>
