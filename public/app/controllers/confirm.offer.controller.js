@@ -25,7 +25,7 @@ app.controller('ConfirmOfferController', function($rootScope, $scope, $state, $s
         price: $scope.offerForm.price,
         category: $scope.offerForm.category,
         title: $scope.offerForm.title,
-        is_valid: 0
+        is_valid: 2
       }
       $http.put('/api/offer/'+$stateParams.id, reqObj).then(function(res) {
         console.log(res);

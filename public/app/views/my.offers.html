@@ -48,7 +48,7 @@
                 <li>Berat : {{ offer.weight }} Kg</li>
                 <li ng-if="offer.is_valid == 2 && user.role == 'SELLER'">Status: TERJUAL</li>
                 <li ng-if="offer.is_valid == 2 && user.role == 'BUYER'">Status: SUDAH DIBELI</li>
-                <li ng-if="offer.is_valid == 1"></li>
+                <li ng-if="offer.is_valid == 1">Status: PENDING</li>
                 <li ng-if="offer.is_valid == 1">Peminat : {{ offer.buyer.length == 0 ? 'Belum ada peminat' : offer.buyer.length + ' peminat'}}</li>
               </ul>
             </div>
