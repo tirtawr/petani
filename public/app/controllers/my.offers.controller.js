@@ -141,7 +141,7 @@ app.controller('MyOffersController', function($rootScope, $scope, $state, $cooki
    $scope.cancel = function(data) {
      if (confirm('Apakah anda yakin?')) {
        var reqObj = {
-         buyer: '',
+         buyer: '[]',
          seller: data.seller,
          image_url: data.image_url,
          description: data.description,
