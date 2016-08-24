@@ -9,6 +9,36 @@ app.controller('RegisterController', function($rootScope, $scope, $state, $cooki
     bbm: ''
   }
 
+  $scope.cities = [
+    "Kab. Bogor",
+    "Kab. Sukabumi",
+    "Kab. Cianjur",
+    "Kab. Bandung",
+    "Kab. Garut",
+    "Kab. Tasikmalaya",
+    "Kab. Ciamis",
+    "Kab. Kuningan",
+    "Kab. Cirebon",
+    "Kab. Majalengka",
+    "Kab. Sumedang",
+    "Kab. Indramayu",
+    "Kab. Subang",
+    "Kab. Purwakarta",
+    "Kab. Karawang",
+    "Kab. Bekasi",
+    "Kab. Bandung Barat",
+    "Kab. Pangandaran",
+    "Kota Bogor",
+    "Kota Sukabumi",
+    "Kota Bandung",
+    "Kota Cirebon",
+    "Kota Bekasi",
+    "Kota Depok",
+    "Kota Cimahi",
+    "Kota Tasikmalaya",
+    "Kota Banjar"
+]
+
   $scope.register = function() {
     var reqBody = {
       username: $scope.registerForm.username,
