@@ -122,9 +122,10 @@
 
           <div class="modal-body" ng-show="modal_type == 'CONTACT_BUYERS'">
             <div ng-repeat="buyer in modal_buyer track by $index">
-              <label>Peminat {{$index}}</label>
+              <label>Peminat {{$index + 1}}</label>
               <ul>
                 <li><strong>Username:</strong> {{ buyer.username}}</li>
+                <li><strong>PIN BBM:</strong> {{ buyer.city == '' ? 'Tidak ada' : buyer.city }}</li>
                 <li><strong>No. Telp:</strong> {{ buyer.phone }}</li>
                 <li><strong>PIN BBM:</strong> {{ buyer.bbm == '' ? 'Tidak ada' : buyer.bbm }}</li>
               </ul>
